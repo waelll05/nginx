@@ -1,0 +1,23 @@
+server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/wael/html;
+        index index1.html index1.htm index.nginx-debian.html;
+
+        server_name wael www.wael;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+    
+        location /ahmed {
+          proxy_pass http://localhost:8010;
+        }
+}
+
+
+## tapez : sudo ln -s /etc/nginx/site-availables/wael  /etc/nginx/site-enable ####
+
+repertoire application /var/www/html
+repertoire configuration etc/nginx
